@@ -2,36 +2,42 @@ package com.Bridgelabz;
 
 public class Employee_wage {
 
-	  public static final int IS_PART_TIME = 1; 
-		public static final int IS_FULL_TIME = 2; 
-		public static final int EMP_RATE_PER_HOUR = 20; //constant
+	public static final int IS_PART_TIME = 1; 
+	public static final int IS_FULL_TIME = 2; 
+	public static final int EMP_RATE_PER_HOUR = 20;
+	public static final int NUM_OF_WORKING_DAYS = 2;//constant
+	
+	public static void main(String[] args) {
 		
-		public static void main(String[] args) {
-			
-			
-			 int empHrs = 0;
-			 int empWage = 0;            //variables
+		
+		 int empHrs = 0;
+		 int empWage = 0;      
+		 int totalEmpWage=0;            //variables
 
-			 // computation
-			 int emp_check=(int)Math.floor(Math.random()*10)%3;
+		 // computation
+	for(int day=0; day<NUM_OF_WORKING_DAYS; day++)
+		{
+		 int emp_check=(int)Math.floor(Math.random()*10)%3;
+		 
+		 switch(emp_check)
+		 {
+		 case IS_PART_TIME :
+			 empHrs=4;
+			 break;
 			 
-			 switch(emp_check)
-			 {
-			 case IS_PART_TIME :
-				 empHrs=4;
-				 break;
-				 
-			 case IS_FULL_TIME:
-				 empHrs=8;
-				 break;
-				 
-		     default:
-				 empHrs=0;
-				 
-			 }
+		 case IS_FULL_TIME:
+			 empHrs=8;
+			 break;
 			 
-			 empWage = empHrs * EMP_RATE_PER_HOUR;
-			 System.out.println("emp wage: "+empWage);
+	     default:
+			 empHrs=0;
+			 
+		 }
+		 
+		 empWage = empHrs * EMP_RATE_PER_HOUR;
+		 totalEmpWage += empWage;
+		 System.out.println("emp wage: "+empWage);
 		}
-
+		 System.out.println("Total Emp wage: "+totalEmpWage);
+	}
 }
